@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập JS </title>
+</head>
+
+<body onload="test()">
+    <!-- Create selection of classname  -->
+    <select id="select1" onchange="test()">
+        <option value="net" active>.net</option>
+        <option value="angular">angular</option>
+        <option value="java">java</option>
+        <option value="java">test</option>
+    </select>
+
+
+    <!-- Selection box of name will be create in here by JS  -->
+    <select id="select2">
+
+
+
+
+    </select>
+
+
+
+    <!-- Code JavaScripts -->
+    <script>
+        //Create Students Array
+        students = [{
+                id: 1,
+                name: 'tran van a',
+                className: '.net'
+            },
+            {
+                id: 2,
+                name: 'tran van b',
+                className: '.net'
+            },
+            {
+                id: 3,
+                name: 'tran van c',
+                className: 'angular'
+            },
+            {
+                id: 4,
+                name: 'tran van d',
+                className: 'angular'
+            },
+            {
+                id: 5,
+                name: 'tran van e',
+                className: 'java'
+            },
+            {
+                id: 6,
+                name: 'tran van f',
+                className: 'java'
+            },
+            {
+                id: 7,
+                name: 'tran van g',
+                className: 'java'
+            },
+            {
+                id: 8,
+                name: 'tran van h',
+                className: 'test'
+            },
+            {
+                id: 9,
+                name: 'tran van i',
+                className: 'test'
+            },
+            {
+                id: 10,
+                name: 'tran van j',
+                className: 'test'
+            }
+        ] //Created students array.
+
+
+        // Function get the specify Value of selected
+        function test() {
+
+            // Get value of classname seletec in select1
+            selectIndex = document.getElementById("select1").selectedIndex
+            selectValue = document.getElementsByTagName("option")[selectIndex].innerText
+            
+
+            //reset value in name selection box every time call function
+
+            document.getElementById("select2").innerHTML = ""
+
+
+
+            // Get name value and classname value then compare with select1
+            var count = students.length; //Array Length
+
+            for (var i = 0; i <= count - 1; i++) {
+               
+                nameStudent = students[i].name;
+                classnameStudent = students[i].className;
+
+                //condition matching value select1 with students array
+                if (selectValue == classnameStudent) {
+                    optiontag = document.createElement("OPTION")
+                    optiontag.innerText = nameStudent
+                    document.getElementById("select2").appendChild(optiontag)
+
+                }
+
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
